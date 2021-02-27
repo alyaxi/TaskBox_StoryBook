@@ -16,7 +16,6 @@ const Task: React.FC<TaskProps> = ({task: {id, title, state}}) => {
 
     const dispatch = useDispatch()
 
-    console.log(state);
  return (
      <div className={`list-item ${state}`}>
          <label className="checkbox">

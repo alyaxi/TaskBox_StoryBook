@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { TaskTypes } from './Task';
 import TaskList from './TaskList';
+import InputTask from './InputTask';
 
 export default function TaskScreen({error}: any) {
     const state = useSelector((state: TaskTypes[]) => (state))
@@ -27,6 +28,10 @@ export default function TaskScreen({error}: any) {
                     <span className = "title-wrapper">TASK BOX</span>
                 </h1>
             </nav>
+            <div className="input">
+
+            <InputTask/>
+            </div>
             <TaskList tasks={state} loading={false}/>
         </div>
     )

@@ -1,5 +1,5 @@
 import React from 'react';
-import Task, {TaskProps, TaskTypes} from "./Task"
+import Task, {TaskTypes} from "./Task"
 
 import PropTypes from "prop-types";
 
@@ -49,13 +49,15 @@ const TaskList: React.FC<TaskListProps> = ({tasks, onArchived, onPinned, loading
             </div>
         </div>
     }
-    const TaskInOrder = [
-        ...tasks.filter(task => task.state === "TASK_PINNED"),
-        ...tasks.filter(task => task.state !== "TASK_PINNED"),
+    const TasksInOrder = [
+        ...tasks.filter(t =>t.state === "TASK_PINNED" ),
+
+        ...tasks.filter(t => t.state !== "TASK_PINNED"),
+        
     ]
     return (
         <div className = "list-items">
-            {TaskInOrder.map((task, id) => (
+            {TasksInOrder.map((task, id) => (
                 <div key={id}>
                 <Task key={id} task={task} {...event}/>
                 </div>

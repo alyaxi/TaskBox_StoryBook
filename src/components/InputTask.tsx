@@ -1,3 +1,4 @@
+import { Button, TextField } from '@material-ui/core';
 import React, { useState } from 'react';
 import {useDispatch} from "react-redux";
 import {add} from "../reducer/TaskReducer";
@@ -17,9 +18,13 @@ const InputTask = () => {
     }
 
     return (
-        <div>
-            <input type="text" value={input} required onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setInput(e.target.value)}}/>
-            <button onClick={handleSubmit}> ADD TASK</button>
+        <div className="new_task">
+
+            
+                    <TextField  style={{backgroundColor: "#c8d6e5", color:"white",padding:"5px"}}onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setInput(e.target.value)}} value={input} required id="standard-required" label="Input Task" />
+
+           
+            <Button variant="contained" color="primary" onClick={handleSubmit}> ADD TASK </Button>
         </div>
     )
 }
