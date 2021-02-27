@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import {archiveTask} from "../reducer/TaskReducer"
+import {archiveTask, pinnedTask} from "../reducer/TaskReducer"
 import "../index.css"
 
 export interface TaskTypes {
@@ -20,12 +20,20 @@ const Task: React.FC<TaskProps> = ({task: {id, title, state}}) => {
  return (
      <div className={`list-item ${state}`}>
          <label className="checkbox">
-             <input type="checkbox" defaultChecked={state === "TASK_ARCHIVED"} disabled={true} name="checked" />
-             <span className="checkbox-custom" onClick={() => dispatch(archiveTask(id))}/>
+             <input type="checkbox" defaultChecked={state === "TASK_ARCHIVED"}  name="checked" />
+             <span className ="checkbox-custom" onClick={() => dispatch(archiveTask(id))}/>
          </label>
         <div className="title">
-            <input type="check" value={title} readOnly={true} placeholder={"Input task"}/>
+            <input type="text" value={title} readOnly={true} placeholder={"Input Task"}/>
         </div>
+        <div className="actions" onClick={(e) => {e.stopPropagation()}}>
+            {state !== "TASK_ARCHIVED" ? (
+                <a href="/" onClick={() => dispatch(pinnedTask(id))}>
+                 <span onClick={(e) => {e.preventDefault()}} className={`icon-star`}></span>
+                </a>
+            ): null}
+        </div>
+
 
      </div>
  )   

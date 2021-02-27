@@ -8,8 +8,8 @@ const InputTask = () => {
 
     const handleSubmit = (e: any) => {
         e.preventDefault()
-        if(input === " "){
-            dispatch(add({input: "Required Field"}))
+        if(input === ""){
+            alert("Required Input Field")
         }else {
             dispatch(add({input}))
             setInput("")
@@ -18,7 +18,7 @@ const InputTask = () => {
 
     return (
         <div>
-            <input type="text" value={input} onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setInput(e.target.value)}}/>
+            <input type="text" value={input} required onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setInput(e.target.value)}}/>
             <button onClick={handleSubmit}> ADD TASK</button>
         </div>
     )
