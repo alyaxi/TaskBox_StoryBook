@@ -20,11 +20,11 @@ const Task: React.FC<TaskProps> = ({task: {id, title, state}}) => {
  return (
      <div className={`list-item ${state}`}>
          <label className="checkbox">
-             <input type="checkbox" defaultChecked={state === "TASK_ARCHIVED"}  name="checked" />
+             <input type="checkbox" className="checkbox-line" disabled={true} defaultChecked={state === "TASK_ARCHIVED"}  name="checked" />
              <span className ="checkbox-custom" onClick={() => dispatch(archiveTask(id))}/>
          </label>
         <div className="title">
-            <input type="text" value={title} readOnly={true} placeholder={"Input Task"}/>
+            <input type="text" value={title} className={`${state === "TASK_ARCHIVED" ? "checkbox-line": null}`} readOnly={true} placeholder={"Input Task"}/>
         </div>
         <div className="actions" onClick={(e) => {e.stopPropagation()}}>
             {state !== "TASK_ARCHIVED" ? (
