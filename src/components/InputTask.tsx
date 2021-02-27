@@ -23,3 +23,4 @@ const InputTask = () => {
         </div>
     )
 }
+export default InputTask

@@ -14,7 +14,7 @@ export interface TaskProps {
 
 const Task: React.FC<TaskProps> = ({task: {id, title, state}}) => {
 
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
 
     console.log(state);
  return (
