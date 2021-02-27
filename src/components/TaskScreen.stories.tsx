@@ -4,6 +4,7 @@ import {Provider} from "react-redux"
 import {action} from "@storybook/addon-actions";
 import * as TaskListStories from "./TaskList.stories"
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
     title:"Task Screen",
     component: TaskScreen,
