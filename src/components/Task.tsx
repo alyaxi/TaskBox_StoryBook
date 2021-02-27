@@ -1,6 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import {archiveTask, pinnedTask} from "../reducer/TaskReducer"
+import {archiveTask, pinnedTask} from "../reducer/TaskReducer";
+
+
 import "../index.css"
 
 export interface TaskTypes {

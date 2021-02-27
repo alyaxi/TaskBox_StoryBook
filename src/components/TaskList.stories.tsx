@@ -42,6 +42,6 @@ export const Loading = Template.bind({})
 
  export const Empty = Template.bind({})
  Empty.args = {
-     tasks: [],
+     ...Loading.args,
      loading: false
  }

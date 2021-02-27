@@ -1,5 +1,5 @@
 import React from 'react';
-import Task, {TaskTypes} from "./Task"
+import Task, {TaskTypes} from "./Task";
 
 import PropTypes from "prop-types";
 
@@ -49,18 +49,16 @@ const TaskList: React.FC<TaskListProps> = ({tasks, onArchived, onPinned, loading
             </div>
         </div>
     }
-    const TasksInOrder = [
-        ...tasks.filter(t =>t.state === "TASK_PINNED" ),
-
-        ...tasks.filter(t => t.state !== "TASK_PINNED"),
-        
-    ]
+    const tasksInOrder = [
+        ...tasks.filter(t => t.state === 'TASK_PINNED'),
+        ...tasks.filter(t => t.state !== 'TASK_PINNED'),
+      ];
     return (
         <div className = "list-items">
-            {TasksInOrder.map((task, id) => (
-                <div key={id}>
-                <Task key={id} task={task} {...event}/>
-                </div>
+            {tasksInOrder.map((task) => (
+                
+                <Task key={task.id} task={task} {...event}/>
+               
             ))}
         </div>
     )
@@ -72,8 +70,7 @@ export default TaskList
 TaskList.propTypes = {
     /** Checks if it's in loading state */
     // loading: PropTypes.bool,
-    /** The list of tasks */
-    // tasks: PropTypes.arrayOf(Task.propTypes.task).isRequired,
+    /** The list of tasks *
     /** Event to change the task to pinned */
     onPinned: PropTypes.func,
     /** Event to change the task to archived */
